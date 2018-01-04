@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
-import ItemService from './ItemService';
+import HouseService from './HouseService';
 
 class TableRow extends Component {
 
   constructor(props) {
       super(props);
-      this.addItemService = new ItemService();
+      this.addHouseService = new HouseService();
       this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    this.addItemService.deleteData(this.props.obj._id);
+    this.addHouseService.deleteData(this.props.obj._id);
   }
   render() {
     return (
@@ -21,7 +21,7 @@ class TableRow extends Component {
             {this.props.obj._id}
           </td>
           <td>
-            {this.props.obj.item}
+            {this.props.obj.house}
           </td>
           <td>
           <Link to={"/edit/"+this.props.obj._id} className="btn btn-primary">Edit</Link>

@@ -1,20 +1,33 @@
+'use strict'
+
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import {render} from 'react-dom'
+import {connect, Provider} from 'react-redux'
+import { BrowserRouter as Router } from 'react-router-dom'
+import Route from 'react-router-hooks'
+import {IndexRedirect} from 'react-router'
+import store from './store'
 
-import App from './App';
-import AddItem from './components/AddItem';
-import IndexItem from './components/IndexItem';
-import EditItem from './components/EditItem';
+import App from './App'
+import AddHouseContainer from './containers/AddHouseContainer'
+import IndexHouseContainer from './containers/IndexHouseContainer'
+import EditHouseContainter from './containers/EditHouseContainer'
 
-ReactDOM.render(
-  <Router>
-      <div>
-        <Route exact path='/' component={App} />
-        <Route path='/add-item' component={AddItem} />
-        <Route path='/index' component={IndexItem} />
-        <Route path='/edit/:id' component={EditItem} />
-      </div>
-  </Router>,
+import { getAllHouses } from './reducers/house'
+
+const IndexHouseEnter = () => {
+	store.dispatch(getAllHouses())
+}
+
+render(
+	<Provider store={store}>
+	  <Router>
+	      <div>
+	        <Route exact path='/' component={IndexHouseContainer} onEnter={IndexHouseEnter} />
+	        <Route path='/add-house' component={AddHouseContainer} />
+	        <Route path='/edit-house' component={EditHouseContainter} />
+	      </div>
+	  </Router>
+	 </Provider>,
   document.getElementById('root')
 );
