@@ -2,6 +2,7 @@ import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 import {connect} from 'react-redux'
 import {required, maxLength15, maxLength30, number, zipCode} from './frontEndValidations'
+
 export const EditHouse = ({ handleSubmit, pristine, reset, submitting, valid, houseToEdit}) => {
     return (
         <div className='container'>

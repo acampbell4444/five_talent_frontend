@@ -1,7 +1,7 @@
 import React from 'react'
-import { Field, reduxForm } from 'redux-form'
-import {connect} from 'react-redux'
+import { Field } from 'redux-form'
 import {required, maxLength15, maxLength30, number, zipCode} from './frontEndValidations'
+
 export const AddHouse = ({ handleSubmit, pristine, reset, submitting, valid}) => {
     return (
         <div className='container'>

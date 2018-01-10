@@ -1,14 +1,12 @@
 'use strict'
 
-import React from 'react';
+import React from 'react'
 import {render} from 'react-dom'
 import {connect, Provider} from 'react-redux'
 import { BrowserRouter as Router } from 'react-router-dom'
 import Route from 'react-router-hooks'
-import {IndexRedirect} from 'react-router'
 import store from './store'
 
-import App from './App'
 import AddHouseContainer from './containers/AddHouseContainer'
 import IndexHouseContainer from './containers/IndexHouseContainer'
 import EditHouseContainter from './containers/EditHouseContainer'
@@ -30,4 +28,4 @@ render(
 	  </Router>
 	 </Provider>,
   document.getElementById('root')
-);
+)
